@@ -7,7 +7,7 @@ taxiDB = pd.read_csv('taxi_dataset.csv')
 
 taxiDB['pickup_datetime'] = pd.to_datetime(taxiDB['pickup_datetime'])
 taxiDB['dropoff_datetime'] = pd.to_datetime(taxiDB['dropoff_datetime'])
-taxiDB['trip_duration'] = (taxiDB['dropoff_datetime'] - taxiDB['pickup_datetime']).dt.seconds
+taxiDB['trip_duration'] = (taxiDB['dropoff_datetime'] - taxiDB['pickup_datetime']).dt.total_seconds()
 
 taxiDB = taxiDB.drop('dropoff_datetime', axis=1)
 
@@ -86,8 +86,7 @@ taxiDB = taxiDB.drop(['pickup_longitude', 'dropoff_longitude',
 
 # Предлагаю Вам реализовать прием с Mean-target encoding'ом, как в практическом занятии.
 # Замените колонку passenger_count колонкой category_encoded
-taxiDB['category_encoded'] = taxiDB['passenger_count'].map(taxiDB.groupby(['passenger_count'])['trip_duration'].mean())
-taxiDB.drop(['passenger_count'], axis=1)
+taxiDB['passenger_count'] = taxiDB['passenger_count'].map(taxiDB.groupby(['passenger_count'])['trip_duration'].mean())
 
 # Кажется, мы достаточно близки с Вами к тому, чтобы получить в итоге табличку, полностью состояющую из чиселок и,
 # казалось бы, осмысленных признаков! Остались две колонки: id, pickup_datetime id можно использовать как обычный
