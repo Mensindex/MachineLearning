@@ -1,6 +1,4 @@
-def print_hi(name):
-    print(f'Hi, {name}')
-
+import gradien_descent
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    gradien_descent.print_result()
