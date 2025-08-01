@@ -1,8 +1,8 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-from main import X
-from main import Y
+from main_2_3 import X
+from main_2_3 import Y
 
 print(X['prediction_2'])
 X = X.drop(['pickup_datetime', 'prediction_1', 'prediction_2', ], axis=1)
