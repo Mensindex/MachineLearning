@@ -1,4 +1,4 @@
-from base_figure import BaseFigure
+from module1.lesson7.base_figure import BaseFigure
 
 
 class Triangle(BaseFigure):
