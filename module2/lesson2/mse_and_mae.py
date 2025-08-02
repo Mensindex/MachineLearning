@@ -1,7 +1,7 @@
 from math import log
 
-from main_2_2 import X
-from main_2_2 import Y
+from main import X
+from main import Y
 
 error_1 = (((X['prediction_1'] - Y) ** 2).mean())
 error_2 = (((X['prediction_2'] - Y) ** 2).mean())
